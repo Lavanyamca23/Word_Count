@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-5.1</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        var paragraph=`the starter code, some comments start with the words "TO DO." This is where you could add your lines of codes to solve this assignment.
+The words will need to be scrubbed of any punctuation. To do so, you may choose to use regex and "replace", or you may choose to get rid of any punctuation marks another way. It is up to you!
+Watch out for casing. The JavaScript compiler does not think a lowercase and an uppercase letter are the same letter the way humans do. To avoid this, set the entire string to be in lowercase.`  
+var words = paragraph.replace(/[,."/\!]/g,"");
+ words.toLowerCase();
+ var word=words.split(" "); 
+ var reducedwords=word.reduce((total,start)=>{
+  if(total[start])
+  total[start]++
+else
+total[start]=1;
+return total;
+
+ },{})  
+let myarray=Object.entries(reducedwords)
+myarray.sort(function(a,b)  {
+    return b[1]-a[1];
+})
+var silceelement=myarray.slice(0,3)
+console.log(silceelement)
+var element=""
+for(let i=0;i<3;i++)
+
+{
+    element=element+"<h1>" +silceelement[i][0]+"-"+silceelement[i][1]+"</h1>";
+
+}
+document.getElementById("app").innerHTML=element
+
+ </script>
+</body>
+</html>
